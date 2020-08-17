@@ -1,0 +1,27 @@
+﻿
+@{
+	ViewData["Title"] = "Overview";
+	Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+@model PortfolioRick.ViewModels.PortfolioViewModel
+<section class="main-content">
+	<div class="row">
+		<h1 class="whiteblock">Portfolio</h1>
+		<a asp-action="Single" asp-controller="Portfolio">Add new item</a>
+		@foreach (var u in Model.listOfPortfolioItems)
+		{
+			<div class="col-md-12 single-user">
+				<p class="positionleft">@u.itemTitle</p>
+				<form asp-action="Delete" asp-controller="Portfolio" class="positionright">
+					<input type="hidden" name="itemToDelete" value="@u.itemId" />
+					<button type="submit" class="btnCallToAction">Delete</button>
+				</form>
+				<form asp-action="Single" asp-controller="Portfolio" class="positionright">
+					<input type="hidden" name="itemToEdit" value="@u.itemId" />
+					<button type="submit" class="btnCallToAction">Update</button>
+				</form>
+			</div>
+		}
+	</div>
+</section>
+

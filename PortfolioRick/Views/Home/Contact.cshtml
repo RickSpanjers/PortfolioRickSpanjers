@@ -1,0 +1,72 @@
+﻿@{
+	ViewData["Title"] = "Contact";
+}
+
+<section class="entry-content">
+	<h1 class="entry-title">Contact</h1>
+	<h2 class="entry-title">Neem contact met ons op</h2>
+</section>
+
+<div id="map"></div>
+
+<section class="sub_content">
+	<div class="container">
+		<div class="content">
+			<h2>Wil je meer weten of heb je een vraag</h2>
+			<p>Op het kaartje hierboven zie je waar SpanDev is gevestigd. Wij zijn gevestigd in heel Nederland!. We kunnen klanten vanuit heel Nederland met gemak helpen door onze effectieve werkwijze via telefoon en e-mail.</p>
+			<p>&nbsp;</p>
+			<p><button id="scroll_btn" class="btnCallToAction">STEL JE VRAAG AAN SPANDEV</button></p>
+			<p>&nbsp;</p>
+			<h2>Contactgegevens</h2>
+			<p><span class="pink_txt">Open: Ma t/m Vrij 09:00 – 17:00</span></p>
+			<p>
+				<strong>T:</strong>&nbsp;06-31272163<br>
+				<strong>E:</strong>&nbsp;<a href="mailto:info@spandev.nl" target="_blank" rel="noopener noreferrer">info@spandev.nl</a>
+			</p>
+			<p>&nbsp;</p>
+			<h2>Social Media</h2>
+			<p><img class="contact-socials" src="http://www.rickspanjers.nl/wp-content/uploads/2017/05/facebook_icon.png"><img class="contact-socials" src="http://www.rickspanjers.nl/wp-content/uploads/2017/05/twitter_icon-1.png"><img class="contact-socials" src="http://www.rickspanjers.nl/wp-content/uploads/2017/05/linkedin_icon-1.png"><img class="contact-socials" src="http://www.rickspanjers.nl/wp-content/uploads/2017/05/instagram_icon-1.png"></p>
+		</div>
+	</div>
+</section>
+
+<section class="contact_page_form">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<h2 style="text-align:left;" class="section-title">Meer informatie<br> <span class="section-color-reverse">over ons aanbod</span></h2><p></p><p>Wil je weten wat de mogelijkheden zijn? Of heb je een vraag over je huidige domeinnaam, onze werkwijze of wil je weten of jouw idee mogelijk is? Vul dan dit formulier in en we antwoorden je zo snel mogelijk.</p>
+				<p>&nbsp;</p>
+				<h3>
+					Even telefonisch een vraag stellen?<br>
+					Dat kan ook!
+				</h3>
+				<p>Vul hier het formulier in en geef aan dat je een afspraak wilt maken voor een telefonisch gesprek. We nemen dan zo snel mogelijk contact met je op om een afspraak in te plannen.</p>
+				<p>&nbsp;</p>
+				<h3>Openingstijden</h3>
+				<p>Wij zijn elke werkdag geopend van 09:00 tot 17:00</p>
+				<p></p>
+			</div>
+			<div class="col-md-7">
+				<div id="partialform">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<script>
+	var map;
+	function initMap() {
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: { lat: -34.397, lng: 150.644 },
+			zoom: 8
+		});
+	}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJLoagFYAznxbfaII5yVACJATCIzPfghU&callback=initMap" async defer></script>
+
+
+

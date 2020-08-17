@@ -1,0 +1,200 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+@model PortfolioRick.ViewModels.HomeViewModel
+
+
+<section class="section-banner">
+	<div class="page_banner Aligner">
+		<div class="wrap">
+			<div class="Aligner-item Aligner-item--top"></div>
+			<div class="Aligner-item">
+				<h1 class="frontpage-heading">Een website naar jouw wensen</h1>
+				<p class="frontpage-heading">Met een website van SpanDev kunt je weer vooruit.</p>
+			</div>
+			<div class="Aligner-item Aligner-item--bottom"></div>
+		</div>
+	</div>
+</section>
+
+<section class="intro_portfolio">
+	<div class="container">
+		<div class="col-md-3">
+			<a asp-action="Portfolio" asp-controller="Portfolio" class="btnCallToAction" role="button">Bekijk ons portfolio</a>
+		</div>
+		<div class="col-md-9">
+			<h3>Een eerste indruk nodig? Bekijk hier wat we al eerder hebben gemaakt.</h3>
+		</div>
+	</div>
+</section>
+
+<section class="home_intro">
+	<div class="container">
+		<h2 class="section-title">Nieuwe website, sterke webdesigns én een makkelijk CMS</h2>
+		<p>Een website laten maken bij SpanDev? Wij ontwikkelen sterke websites voor iedereen met interesse. Alle websites die we opleveren hebben sterke webdesigns en kunnen makkelijk beheerd worden met een makkelijk CMS. Al een aantal hebben bij ons een website laten maken. Zowel voor bedrijven, verenigingen en kleine websites kunnen we een oplossing bieden.</p>
+	</div>
+</section>
+
+<section class="home_diensten">
+	<div class="wrap">
+		<div class="col-md-4 col-sm-12 col-xs-12 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+			<h3><a asp-action="Index" asp-controller="Home">Makkelijk CMS</a></h3>
+			<hr>
+			<p>Geen gedoe meer met onwerkbare systemen, maar een eenvoudig te gebruiken CMS om je website makkelijk te beheren.</p>
+			<div class="center-btn">
+				<a class="btnreverse" asp-controller="Home" asp-action="Index">Lees meer</a>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-sm-12 col-xs-12 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+			<h3><a asp-controller="Home" asp-action="Index">Sterke webdesigns</a></h3>
+			<hr>
+			<p>Een website laten ontwerpen door SpanDev. Hierdoor krijg je een design naar je eigen wensen. Elke website een unieke stijl en 100% mobielvriendelijk!</p>
+			<div class="center-btn">
+				<a class="btnreverse" asp-controller="Home" asp-action="Index">Lees meer</a>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-sm-12 col-xs-12 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+			<h3><a asp-controller="Home" asp-action="Index">SEO Optimalisatie</a></h3>
+			<hr>
+			<p>SEO Optimalisatie door SpanDev. hierdoor wordt je direct goed geindexeerd en ben je beter vindbaar.</p>
+			<div class="center-btn">
+				<a class="btnreverse" asp-controller="Home" asp-action="Index">Lees meer</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="home_parallax">
+	<div class="parallax-seo Aligner wow fadeInUp" style="background-image: url(&quot;http://www.rickspanjers.nl/wp-content/uploads/2017/02/seo_analytics-1.jpg&quot;); visibility: visible; animation-name: fadeInUp;">
+		<div class="wrap">
+			<div class="Aligner-item Aligner-item--top"></div>
+			<div class="Aligner-item">
+				<h2 class="parallax-heading">SEO &amp; Analytics</h2>
+				<p class="parallax-paragraph">Wil je meteen bezoekers op je site ontvangen? Wij kunnen ervoor zorgen dat je website goed gevonden wordt in de Google zoekresultaten. Dit doen we door een effectief SEO-traject voor je starten. Hierdoor stijgen de 'gewone' organische resultaten van Google. Al een aantal klanten maken gebruik van onze diensten en ontvangen hierdoor meer bezoekers op hun website.</p>
+			</div>
+			<div class="Aligner-item Aligner-item--bottom"></div>
+		</div>
+	</div>
+</section>
+
+<section class="home_design">
+	<div class="container wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+		<h2 class="section-title">Mobielvriendelijke ontwerpen <span class="section-color-reverse">voor jouw website</span></h2>
+		<p class="design-paragraph">Een website laten maken bij SpanDev betekent dat er veel aandacht wordt besteed aan jou website. Voordat we gaan bouwen neemt een van onze designers contact met je op om samen de website met je te bespreken. Op basis van jouw input en onze ideeën wordt de  website vormgegeven en ontwikkeld. Voordat de website online gaat is er een mogelijkheid om het design te  bekijken en eventueel aan te passen.</p>
+	</div>
+</section>
+
+
+<section class="home_example_portfolio">
+	<h2>Voorbeelden</h2>
+	<div class="home_example_portfolio_items">
+		@{
+			int x = 0;
+		}
+		@foreach (var item in Model.listofPortfolioitems)
+		{
+			if (x > Model.listofPortfolioitems.Count - 5)
+			{
+				<div class="col-md-6 Aligner">
+					<span class="bg-item" style="min-height: 450px; background-image: url(/images/portfolio/@item.FrontpageImg); display: none;"></span>
+					<div class="wrap">
+						<div class="Aligner-item Aligner-item--top"></div>
+						<div class="Aligner-item" style="z-index:999;">
+							<h2>@item.itemTitle</h2>
+						</div>
+						<div class="Aligner-item Aligner-item--bottom"></div>
+					</div>
+				</div>
+			}
+			x++;
+		}
+	</div>
+</section>
+
+<section class="after_portfolio_example">
+	<div class="container">
+		<div class="col-md-9">
+			<h3>Zien wat voor mooie websites we nog meer hebben gemaakt?</h3>
+		</div>
+		<div class="col-md-3">
+			<a asp-action="Portfolio" asp-controller="Portfolio" class="btnCallToAction" role="button"> Bekijk de voorbeelden</a>
+		</div>
+	</div>
+</section>
+
+<section class="home_cms">
+	<div class="container wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+		<h2 class="section-title">Website onderhouden <span class="section-color-reverse">met een gemakkelijk CMS</span></h2>
+		<p class="design-paragraph">
+			Als je een website laat maken, wil je natuurlijk wel zelf kunnen onderhouden. Daarom zijn de websites die wij opleveren technisch geoptimaliseerd naar jou wensen. Hierdoor kun je zelf besluiten welke content op de website wordt getoond en of er eventueel nieuwe content bij moet komen. Daarnaast bevat ons CMS functionaliteiten waarmee de gebruiksvriendelijkheid nog verder wordt verbeterd. Zo heeft elke pagina een manier om SEO te verbeteren. Ook controleert deze of alles goed staat ingesteld. Voor een gemakkelijk CMS moet je bij SpanDev zijn!<br>
+			<br>
+		</p>
+	</div>
+</section>
+
+<div class="parallax-seo wow fadeInUp testimonials Aligner">
+	<div class="container">
+		<div class="testimonial_banner Aligner">
+			@foreach (var testimonial in Model.listofReviews)
+			{
+				<div class="wrap">
+					<div class="Aligner-item Aligner-item--top"></div>
+					<div class="Aligner-item">
+						<h2 class="parallax-heading-testimonial">
+							<i class="fa fa-quote-left" aria-hidden="true"></i>
+							@testimonial.reviewMessage
+							<i class="fa fa-quote-right" aria-hidden="true"></i>
+						</h2>
+					</div>
+					<div class="Aligner-item Aligner-item--bottom"></div>
+				</div>
+			}
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+		$('.testimonial_banner').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: false,
+			autoplay: true,
+			autoplaySpeed: 6000,
+			speed: 1000
+		});
+	});
+</script>
+
+
+<section class="home_contact_form">
+	<div class="container wow bounceInDown" style="visibility: visible; animation-name: bounceInDown;">
+		<div class="col-md-5">
+			<h2 style="text-align:left;" class="section-title">Interesse gekregen? <br><span class="section-color-reverse">Neem contact op met ons!</span></h2>
+			<ul>
+				<div class="li-wrapper"><i class="fa fa-check" aria-hidden="true"></i><li class="checkmarks"> Snelle reactie</li></div>
+				<div class="li-wrapper"><i class="fa fa-check" aria-hidden="true"></i><li class="checkmarks"> Accurate informatie</li></div>
+				<div class="li-wrapper"><i class="fa fa-check" aria-hidden="true"></i><li class="checkmarks"> Geheel vrijblijvend</li></div>
+			</ul>
+		</div>
+		<div class="col-md-7 ">
+			<div id="partialform">
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="home_after_form">
+	<div class="container">
+		<div class="col-md-3">
+			<a asp-action="Blog" asp-controller="Blog" class="btnCallToAction" role="button"> Bekijk onze blog</a>
+		</div>
+		<div class="col-md-9">
+			<h3>We hebben ook een blog met de nieuwste berichten op webgebied.</h3>
+		</div>
+	</div>
+</section>
+
+

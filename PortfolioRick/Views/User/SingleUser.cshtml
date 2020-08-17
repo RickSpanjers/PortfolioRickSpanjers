@@ -1,0 +1,56 @@
+﻿
+@{
+	ViewData["Title"] = "SingleUser";
+	Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+@model PortfolioRick.ViewModels.UserViewModel
+
+@if (Model.userId == 0)
+{
+	<h1>Nieuwe gebruiker</h1>
+	<form asp-controller="User" asp-action="Add">
+		<label class="labelback" asp-for="Firstname">Voornaam</label>
+		<input class="inputback" asp-for="Firstname" />
+		<label class="labelback" asp-for="Lastname">Achternaam</label>
+		<input class="inputback" asp-for="Lastname" />
+		<label class="labelback" asp-for="emailAddress">E-mail</label>
+		<input class="inputback" asp-for="emailAddress" />
+		<label class="labelback" asp-for="username">Gebruikersnaam</label>
+		<input class="inputback" asp-for="username" />
+		<label class="labelback" asp-for="password">Wachtwoord</label>
+		<input class="inputback" asp-for="password" />
+		<label class="labelback" asp-for="Address">Adres</label>
+		<input class="inputback" asp-for="Address" />
+		<label class="labelback" asp-for="Zipcode">Postcode</label>
+		<input class="inputback" asp-for="Zipcode" />
+		<label class="labelback" asp-for="Place">Plaats</label>
+		<input class="inputback" asp-for="Place" />
+		<button type="submit" class="btnCallToActionAdd">Gebruiker toevoegen</button>
+	</form>
+}
+else
+{
+	<h1>Nieuwe @Model.username</h1>
+	<form asp-controller="User" asp-action="Update">
+		<label class="labelback" asp-for="Firstname">Voornaam</label>
+		<input class="inputback" asp-for="Firstname" value="@Model.Firstname" />
+		<label class="labelback" asp-for="Lastname">Achternaam</label>
+		<input class="inputback" asp-for="Lastname" value="@Model.Lastname" />
+		<label class="labelback" asp-for="emailAddress">E-mail</label>
+		<input class="inputback" asp-for="emailAddress" value="@Model.emailAddress" />
+		<label class="labelback" asp-for="username">Gebruikersnaam</label>
+		<input class="inputback" asp-for="username" value="@Model.username" />
+		<label class="labelback" asp-for="password">Wachtwoord</label>
+		<input class="inputback" asp-for="password" value="@Model.password" />
+		<label class="labelback" asp-for="Address">Adres</label>
+		<input class="inputback" asp-for="Address" value="@Model.Address" />
+		<label class="labelback" asp-for="Zipcode">Postcode</label>
+		<input class="inputback" asp-for="Zipcode" value="@Model.Zipcode" />
+		<label class="labelback" asp-for="Place">Plaats</label>
+		<input class="inputback" asp-for="Place" value="@Model.Place" />
+		<input type="hidden" name="userToUpdate" value="@Model.userId" />
+		<button type="submit" class="btnCallToActionAdd">Gebruiker toevoegen</button>
+	</form>
+
+}
+

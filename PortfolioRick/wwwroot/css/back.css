@@ -1,0 +1,160 @@
+﻿/* # Backend Menu
+---------------------------------------------------------------------------------------------------- */
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+
+.side-menu {
+	font-family: 'Roboto', sans-serif;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 60px;
+	list-style-type: none;
+	background: #f32c52;
+	overflow: hidden;
+	transition: width .5s;
+}
+
+	.side-menu:hover {
+		width: 300px;
+		z-index: 99999;
+	}
+
+	.side-menu li {
+		width: 300px;
+	}
+
+		.side-menu li span {
+			font-size: 15px;
+			margin: 20px 35px 0 22px;
+		}
+
+		.side-menu li a {
+			display: block;
+			font-size: 14px;
+			text-decoration: none;
+			color: #FFF;
+			height: 60px;
+		}
+
+			.side-menu li a:hover,
+			.side-menu li:first-child a {
+				background: #14081d;
+				display: block;
+			}
+
+
+html, body {
+	min-height: 100%;
+	background-color: #f1f1f1;
+}
+
+.positionleft{
+	float:left;
+}
+
+.positionright{
+	float:right;
+}
+
+.single-user{
+	padding:15px;
+}
+
+.single-user:nth-child(odd){
+	background-color:#fff;
+}
+
+.inputback{
+	width:100%;
+	margin-bottom:10px;
+}
+
+.labelback{
+	width:100%;
+}
+
+.textareaback{
+	width:100%;
+	height:250px;
+}
+
+section.main-content {
+	padding: 3rem;
+	padding-left: 0px;
+	padding-right:0px;
+}
+
+.whiteblock{
+	padding:2rem;
+	background-color:#fff;
+	margin-bottom:20px;
+}
+
+.btnCallToAction {
+	transition: background-color .2s ease, color .2s ease;
+	display: inline-block;
+	background-color: #fa1e64;
+	color: white !Important;
+	font-style: normal;
+	line-height: 1em;
+	text-decoration: none;
+	cursor: pointer;
+	box-sizing: border-box;
+	width: auto;
+	border: 1px solid #fa1e64;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 14px;
+	padding-top: 14px;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+
+	.btnCallToAction:hover {
+		background-color: transparent;
+		color: #fa1e64 !important;
+		border: 1px solid #fa1e64;
+		text-decoration: none;
+	}
+
+.btnCallToActionAdd {
+	transition: background-color .2s ease, color .2s ease;
+	display: inline-block;
+	background-color: #fa1e64;
+	color: white !Important;
+	font-style: normal;
+	line-height: 1em;
+	text-decoration: none;
+	cursor: pointer;
+	box-sizing: border-box;
+	width: auto;
+	border: 1px solid #fa1e64;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 14px;
+	padding-top: 14px;
+	font-size: 12px;
+	letter-spacing: 1px;
+	margin-bottom:20px;
+}
+
+	.btnCallToActionAdd:hover {
+		background-color: transparent;
+		color: #fa1e64 !important;
+		border: 1px solid #fa1e64;
+		text-decoration: none;
+	}
+
+.blogimg {
+	padding: 20px;
+	padding-left: 0px;
+}
+
+

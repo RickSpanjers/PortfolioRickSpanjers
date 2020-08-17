@@ -1,0 +1,24 @@
+﻿
+@{
+	ViewData["Title"] = "BlogOverview";
+	Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+@model PortfolioRick.ViewModels.BlogViewModel
+
+<section class="main-content">
+	<div class="row">
+		<h1 class="whiteblock">Blog</h1>
+		<a asp-action="SingleBlogItem" asp-controller="Blog" class="btnCallToActionAdd">Add new item</a>
+		@foreach (var u in Model.BlogItemsInSystem)
+		{
+			<div class="col-md-12 single-user">
+				<p class="positionleft">@u.itemTitle</p>
+				<form asp-action="Delete" asp-controller="Blog" class="positionright">
+					<input type="hidden" name="itemToDelete" value="@u.itemId" />
+					<button type="submit" class="btnCallToAction">Delete</button>
+				</form>
+				<a asp-action="SingleBlogItem" asp-controller="Blog" asp-route-blogId="@u.itemId" class="positionright btnCallToAction">Update</a>
+			</div>
+		}
+	</div>
+</section>

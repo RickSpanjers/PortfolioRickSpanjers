@@ -1,0 +1,33 @@
+﻿
+@{
+	ViewData["Title"] = "Blogpage";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PortfolioRick.ViewModels.BlogViewModel
+
+<section class="entry-content">
+	<h1 class="entry-title">Blog</h1>
+	<h2 class="entry-title">Het laatste nieuws op web gebied</h2>
+</section>
+
+<section class="blog-overview">
+	<div class="wrap">
+		@foreach (var blogitem in Model.BlogItemsInSystem)
+		{
+			<div class="blog-item">
+				<div class="col-md-4 first">
+					<a asp-action="Index" asp-controller="Home"><img src="~/images/blog/@blogitem.Thumbnail"></a>
+				</div>
+				<div class="col-md-8">
+					<a asp-action="Index" asp-controller="Home"><h2 class="blog-title">@blogitem.itemTitle</h2></a>
+					<hr class="blog-title">
+					<p class="author_date">
+						<span class="date">@blogitem.createdDate.Date</span>
+					</p>
+					<p>@blogitem.itemMessage</p>
+					<a class="btnreverse" asp-action="Index" asp-controller="Home">Lees meer</a>
+				</div>
+			</div>
+		}
+	</div>
+</section>

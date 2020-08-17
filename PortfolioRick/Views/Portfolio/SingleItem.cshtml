@@ -1,0 +1,71 @@
+﻿
+@{
+	ViewData["Title"] = "SingleItem";
+	Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+
+@model PortfolioRick.ViewModels.PortfolioItemViewModel
+
+<section class="main-content">
+	<div class="row">
+		<h1>Portfolio Item</h1>
+		@if (Model.itemId == -1)
+		{
+			<form asp-controller="Portfolio" asp-action="Add">
+				<label class="labelback" asp-for="itemName">Name</label>
+				<input class="inputback" asp-for="itemName" />
+				<label class="labelback" asp-for="itemTitle">Title</label>
+				<input class="inputback" asp-for="itemTitle" />
+
+				<label class="labelback" asp-for="categoryName">Category</label>
+				<input class="inputback" asp-for="categoryName" />
+
+				<label class="labelback" asp-for="FrontpageImg">Frontpage image</label>
+				<input type="file" name="frontpageImg" />
+
+				<label class="labelback" asp-for="Thumbnail">Thumbnail</label>
+				<input type="file" name="thumbnail" />
+
+				<label class="labelback" asp-for="urlTitle">Url Title</label>
+				<input class="inputback" asp-for="urlTitle" />
+
+				<label class="labelback" asp-for="urlLink">Url Link</label>
+				<input class="inputback" asp-for="urlLink" />
+
+				<label class="labelback" asp-for="itemDesc">Description</label>
+				<textarea class="textareaback" asp-for="itemDesc"></textarea>
+				<button type="submit" class="btnCallToActionAdd">Add new item</button>
+			</form>
+		}
+		else
+		{
+			<form asp-controller="Portfolio" asp-action="Update">
+				<label class="labelback" asp-for="itemName">Name</label>
+				<input class="inputback" asp-for="itemName" value="@Model.itemTitle" />
+				<label class="labelback" asp-for="itemTitle">Title</label>
+				<input class="inputback" asp-for="itemTitle" value="@Model.itemTitle" />
+
+				<label class="labelback" asp-for="categoryName">Category</label>
+				<input class="inputback" asp-for="categoryName" value="@Model.categoryName" />
+
+				<label class="labelback" asp-for="FrontpageImg">Frontpage image</label>
+				<input type="file" name="frontpageImg" />
+				<img src="~/images/portfolio/@Model.FrontpageImg" class="blogimg" style="width:150px;"/>
+
+				<label class="labelback" asp-for="Thumbnail">Thumbnail</label>
+				<input type="file" name="thumbnail" />
+				<img src="~/images/portfolio/thumbnail/@Model.Thumbnail" class="blogimg" style="width:150px;" />
+
+				<label class="labelback" asp-for="urlTitle">Url Title</label>
+				<input class="inputback" asp-for="urlTitle" value="@Model.urlTitle" />
+
+				<label class="labelback" asp-for="urlLink">Url Link</label>
+				<input class="inputback" asp-for="urlLink" value="@Model.urlLink" />
+
+				<label class="labelback" asp-for="itemDesc">Description</label>
+				<textarea class="textareaback" asp-for="itemDesc">@Model.itemDesc</textarea>
+				<button type="submit" class="btnCallToActionAdd">Add new item</button>
+			</form>
+		}
+	</div>
+</section>

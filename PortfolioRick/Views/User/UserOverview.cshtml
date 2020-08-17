@@ -1,0 +1,28 @@
+﻿
+@{
+	ViewData["Title"] = "UserOverview";
+	Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+@model PortfolioRick.ViewModels.UserOverviewViewModel
+
+<section class="main-content">
+	<div class="row">
+		<h1 class="whiteblock">Users</h1>
+		<a asp-action="Single" asp-controller="User" class="btnCallToActionAdd">Nieuwe gebruiker</a>
+		@foreach (var u in Model.listofUsers)
+		{
+			<div class="col-md-12 single-user">
+				<p class="positionleft">@u.emailAddress</p>
+				<form asp-action="Delete" asp-controller="User" class="positionright">
+					<input type="hidden" name="userToDelete" value="@u.userId" />
+					<button type="submit" class="btnCallToAction">Delete</button>
+				</form>
+				<form asp-action="Update" asp-controller="User" class="positionright">
+					<input type="hidden" name="userToEdit" value="@u.userId" />
+					<button type="submit" class="btnCallToAction">Update</button>
+				</form>
+			</div>
+		}
+	</div>
+</section>
+

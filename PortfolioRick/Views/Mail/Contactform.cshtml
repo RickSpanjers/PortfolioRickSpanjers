@@ -1,0 +1,12 @@
+﻿@model PortfolioRick.ViewModels.MailViewModel
+<form asp-controller="Mail" asp-action="SendContactMailAsync">
+	<input asp-for="Firstname" placeholder="Voornaam" class="contactinput"/>
+	<input asp-for="Lastname" placeholder="Achternaam" class="contactinput" />
+	<input asp-for="Email" placeholder="Email" class="contactinput" />
+	<input asp-for="Phone" placeholder="Telefoonnummer" class="contactinput"/>
+	<input asp-for="Address" placeholder="Adres" class="contactinput" />
+	<input asp-for="Zipcode" placeholder="Postcode" class="contactinput" />
+	<input asp-for="Place" placeholder="Woonplaats" class="contactinput" />
+	<textarea asp-for="Message" placeholder="Message" class="contactinput"></textarea>
+	<button type="submit" class="contactbutton">Versturen</button>
+</form>

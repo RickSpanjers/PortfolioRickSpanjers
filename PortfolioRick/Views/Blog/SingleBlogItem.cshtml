@@ -1,0 +1,45 @@
+﻿
+@{
+	ViewData["Title"] = "SingleBlogItem";
+	Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+@model PortfolioRick.ViewModels.BlogItemViewModel
+
+<section class="main-content">
+	<div class="row">
+		<h1>Blog Item</h1>
+		@if (Model.itemId == 0)
+		{
+			<form asp-controller="Blog" asp-action="Add">
+				<label class="labelback" asp-for="itemTitle">Title</label>
+				<input class="inputback" asp-for="itemTitle" />
+				<label class="labelback" asp-for="published">Published</label>
+				<input type="checkbox" />
+				<label class="labelback" asp-for="Thumbnail">Thumbnail</label>
+				<input type="file" name="blogImage" />
+				<label class="labelback" asp-for="itemMessage">Message</label>
+				<textarea class="textareaback" asp-for="itemMessage"></textarea>
+				<button type="submit" class="btnCallToActionAdd">Add new item</button>
+			</form>
+		}
+		else
+		{
+			<form asp-controller="Blog" asp-action="Update">
+				<label class="labelback" asp-for="itemTitle">Title</label>
+				<input class="inputback" asp-for="itemTitle" value="@Model.itemTitle" />
+				<label class="labelback" asp-for="published">Published</label>
+				<input type="checkbox" checked="checked" />
+				<label class="labelback" asp-for="Thumbnail">Thumbnail</label>
+				<input  type="file" name="blogImage" />
+				<img src="~/images/blog/@Model.Thumbnail"  class="blogimg" />
+				<label class="labelback" asp-for="itemMessage">Message</label>
+				<textarea class="textareaback" asp-for="itemMessage" value="@Model.itemMessage"></textarea>
+				<input type="hidden" name="blogId" value="@Model.itemId" />
+				<button type="submit" class="btnCallToActionAdd">Update item</button>
+			</form>			
+		}
+	</div>
+</section>
+
+
+

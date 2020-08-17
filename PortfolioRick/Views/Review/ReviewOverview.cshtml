@@ -1,0 +1,49 @@
+﻿
+@{
+	ViewData["Title"] = "ReviewOverview";
+	Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+@model PortfolioRick.ViewModels.ReviewViewModel
+<section class="main-content">
+	<div class="row">
+		<h1 class="whiteblock">Review</h1>
+		<div class="col-md-7 whiteblock">
+			@if (Model.reviewId != 0)
+			{
+				<form asp-controller="Review" asp-action="Update">
+					<label class="labelback" asp-for="reviewName">Name of Review</label>
+					<input class="inputback" asp-for="reviewName" value="@Model.reviewName" />
+					<label class="labelback" asp-for="reviewMessage">Message</label>
+					<textarea class="textareaback" asp-for="reviewMessage">@Model.reviewMessage</textarea>
+					<input type="hidden" name="itemToUpdate" value="@Model.reviewId" />
+					<button type="submit" class="btnCallToActionAdd">Update</button>
+				</form>
+			}
+			else
+			{
+				<form asp-controller="Review" asp-action="Add">
+					<label class="labelback" asp-for="reviewName">Name of Review</label>
+					<input class="inputback" asp-for="reviewName" />
+					<label class="labelback" asp-for="reviewMessage">Message</label>
+					<textarea class="textareaback" asp-for="reviewMessage"></textarea>
+					<button type="submit" class="btnCallToActionAdd">Toevoegen</button>
+				</form>
+			}
+
+		</div>
+		<div class="col-md-5">
+			@foreach (var u in Model.listofReviews)
+			{
+				<div class="col-md-12 single-user">
+					<p class="positionleft">@u.reviewName</p>
+					<form asp-action="Delete" asp-controller="Review" class="positionright">
+						<input type="hidden" name="reviewToDelete" value="@u.reviewId" />
+						<button type="submit" class="btnCallToAction">Delete</button>
+					</form> 
+					<a asp-action="Overview" asp-controller="Review" asp-route-itemId="@u.reviewId" class="positionright btnCallToAction">Update</a>
+				</div>
+			}
+		</div>
+
+	</div>
+</section>

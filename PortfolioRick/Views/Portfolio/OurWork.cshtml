@@ -1,0 +1,55 @@
+﻿
+@{
+	ViewData["Title"] = "OurWork";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PortfolioRick.ViewModels.PortfolioViewModel
+
+<section class="entry-content">
+	<h1 class="entry-title">Ons werk</h1>
+	<h2 class="entry-title" style="font-size:18px!important">Hieronder een deel uit ons portfolio. Geen standaard templates, maar flexibele eigen gemaakte websites en applicaties die we een passende uitstraling geven voor correcte doelgroep en content. Hierdoor leveren we je een webdesign op maat. Hieronder enkele voorbeelden:</h2>
+</section>
+
+
+<section class="page-portfolio-show">
+	<div class="container-fluid">
+
+		@foreach (var item in Model.listOfPortfolioItems)
+		{
+			<!-- Items-->
+			<div class="col-md-3 the_background wow fadeInUp">
+				<div class="inner">
+					<div class="text hideOnHover">
+						<div class="block-label">
+							@item.categoryName
+						</div>
+					</div>
+					<div class="text onHover" style="opacity: 0;">
+						<div class="top">
+							@item.urlTitle
+							<span class="arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+						</div>
+						<div class="vertical-wrapper">
+							<div class="vertical vertical-bottom">
+								<div class="middle">
+									<h2 class="portfolio-item-heading">@item.itemTitle</h2>
+								</div>
+								<span class="footer">
+									<span class="date">@DateTime.Now</span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="layers">
+						<div class="layer background">
+							<div class="background" style="background-image: url('/images/portfolio/thumbnail/@item.Thumbnail')"></div>
+						</div>
+						<div class="layer image"></div>
+					</div>
+				</div>
+				<a class="grid-item--link" target="_blank" href="@item.urlLink"></a>
+			</div>
+			<!-- End items-->
+		}
+	</div>
+</section>

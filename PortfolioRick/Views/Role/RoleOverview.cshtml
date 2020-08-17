@@ -1,0 +1,47 @@
+﻿
+@{
+	ViewData["Title"] = "RoleOverview";
+	Layout = "~/Views/Shared/_LayoutBackend.cshtml";
+}
+@model PortfolioRick.ViewModels.RoleOverviewViewModel
+<section class="main-content">
+	<h1 class="whiteblock">Role</h1>
+	<div class="col-md-7 whiteblock">
+		@if (Model.roleId != 0)
+		{
+			<form asp-controller="Role" asp-action="Update">
+				<label class="labelback" asp-for="roleName">Name of Role</label>
+				<input class="inputback" asp-for="roleName" value="@Model.roleName" />
+				<label class="labelback" asp-for="roleDescription">Message</label>
+				<textarea class="textareaback" asp-for="roleDescription">@Model.roleDescription</textarea>
+				<input type="hidden" name="itemToUpdate" value="@Model.roleId" />
+				<button type="submit" class="btnCallToActionAdd">Update</button>
+			</form>
+		}
+		else
+		{
+			<form asp-controller="Role" asp-action="Add">
+				<label class="labelback" asp-for="roleName">Name of Review</label>
+				<input class="inputback" asp-for="roleName" />
+				<label class="labelback" asp-for="roleDescription">Message</label>
+				<textarea class="textareaback" asp-for="roleDescription"></textarea>
+				<button type="submit" class="btnCallToActionAdd">Toevoegen</button>
+			</form>
+		}
+
+	</div>
+	<div class="col-md-5">
+		@foreach (var u in Model.listofRoles)
+		{
+			<div class="col-md-12 single-user">
+				<p class="positionleft">@u.roleName</p>
+				<form asp-action="Delete" asp-controller="Role" class="positionright">
+					<input type="hidden" name="roleToDelete" value="@u.roleId" />
+					<button type="submit" class="btnCallToAction">Delete</button>
+				</form>
+				<a asp-action="OverviewEdit" asp-controller="Role" asp-route-roleId="@u.roleId" class="positionright btnCallToAction">Update</a>
+			</div>
+		}
+	</div>
+
+</section>
